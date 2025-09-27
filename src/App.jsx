@@ -176,18 +176,6 @@ function App() {
           </motion.div>
 
           <motion.div 
-            className="border-2 border-dashed border-blue-400 rounded-lg p-8 mb-12 bg-black/20 max-w-4xl mx-auto"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
-            <Target className="w-16 h-16 text-blue-400 mx-auto mb-4" />
-            <p className="text-blue-300 font-semibold text-lg text-center">ESPAÇO PARA IMAGEM DO SISTEMA COMPLETO</p>
-            <p className="text-blue-200 text-sm mt-2 text-center">Visão geral dos dois pilares: LML + Conceitos Vitais</p>
-          </motion.div>
-
-          <motion.div 
             className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
             initial="initial"
             whileInView="animate"
