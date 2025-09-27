@@ -456,7 +456,10 @@ function App() {
                 <Card className="bg-slate-800 border-2 border-blue-500/50 backdrop-blur-sm h-full hover:border-blue-400 transition-all duration-300">
                   <CardHeader className="text-center">
                     <CardTitle className="text-2xl font-bold text-white mb-4">DNA do ENEM</CardTitle>
-                    <div className="text-5xl font-bold text-white mb-2">R$ 57</div>
+                    <div className="mb-2">
+                      <span className="text-2xl text-gray-400 line-through">De R$ 197</span>
+                    </div>
+                    <div className="text-5xl font-bold text-white mb-2">por apenas R$ 57</div>
                     <div className="text-lg text-gray-300 mb-6">Investimento único</div>
                   </CardHeader>
                   <CardContent className="space-y-3 text-left">
@@ -511,7 +514,10 @@ function App() {
                     <CardTitle className="text-2xl font-bold text-white mb-4">
                       COMBO: DNA + Padrões do ENEM
                     </CardTitle>
-                    <div className="text-5xl font-bold text-white mb-2">R$ 97</div>
+                    <div className="mb-2">
+                      <span className="text-2xl text-gray-400 line-through">De R$ 697</span>
+                    </div>
+                    <div className="text-5xl font-bold text-white mb-2">por apenas R$ 97</div>
                     <div className="text-lg text-gray-300 mb-6">Investimento único</div>
                   </CardHeader>
                   <CardContent className="space-y-3 text-left">
