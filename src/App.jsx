@@ -383,7 +383,7 @@ function App() {
       </section>
 
       {/* Seção de Prova Social */}
-      <section className="py-20 bg-gradient-to-br from-blue-950 via-slate-950 to-blue-900">
+      <section className="py-20 bg-black">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center mb-16"
@@ -409,14 +409,23 @@ function App() {
           >
             <Card className="bg-slate-800 border-slate-600">
               <CardContent className="p-8">
-                <div className="text-center">
-                  <div className="flex items-center justify-center gap-2 mb-4">
-                    <Trophy className="w-6 h-6 text-yellow-400" />
-                    <span className="text-2xl font-bold text-yellow-400">Mário Machado, mentor que alcançou 829 de média no ENEM</span>
+                <div className="flex flex-col md:flex-row items-center gap-8">
+                  <div className="flex-shrink-0">
+                    <img 
+                      src="https://i.imgur.com/ShWnABl.png" 
+                      alt="Mário Machado - Mentor especialista em ENEM com 829 de média"
+                      className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-yellow-400 shadow-2xl"
+                    />
                   </div>
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    O DNA do ENEM foi desenvolvido por um mentor especialista que não apenas <strong className="text-yellow-400">domina o conteúdo</strong>, mas também <strong className="text-blue-300">entende exatamente como a prova funciona</strong>. Cada questão das LMLs e cada Conceito Vital foram <strong className="text-green-400">criteriosamente selecionados</strong> com base em anos de análise das provas do ENEM.
-                  </p>
+                  <div className="flex-1 text-center md:text-left">
+                    <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
+                      <Trophy className="w-6 h-6 text-yellow-400" />
+                      <span className="text-2xl font-bold text-yellow-400">Mário Machado, mentor que alcançou 829 de média no ENEM</span>
+                    </div>
+                    <p className="text-gray-300 text-lg leading-relaxed">
+                      O DNA do ENEM foi desenvolvido por um mentor especialista que não apenas <strong className="text-yellow-400">domina o conteúdo</strong>, mas também <strong className="text-blue-300">entende exatamente como a prova funciona</strong>. Cada questão das LMLs e cada Conceito Vital foram <strong className="text-green-400">criteriosamente selecionados</strong> com base em anos de análise das provas do ENEM.
+                    </p>
+                  </div>
                 </div>
               </CardContent>
             </Card>
