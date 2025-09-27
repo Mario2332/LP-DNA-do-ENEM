@@ -218,12 +218,6 @@ function App() {
                     <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
                     <span className="text-gray-300">645 questões, todas com resolução detalhada</span>
                   </div>
-                  
-                  <div className="border-2 border-dashed border-yellow-400 rounded-lg p-6 mt-6 bg-black/20">
-                    <BookOpen className="w-12 h-12 text-yellow-400 mx-auto mb-3" />
-                    <p className="text-yellow-300 font-semibold text-center">ESPAÇO PARA PREVIEW DAS LML</p>
-                    <p className="text-blue-200 text-sm mt-2 text-center">Exemplo de questões e layout</p>
-                  </div>
                 </CardContent>
               </Card>
             </motion.div>
@@ -253,12 +247,6 @@ function App() {
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
                     <span className="text-gray-300">Revisão rápida e eficiente</span>
-                  </div>
-                  
-                  <div className="border-2 border-dashed border-blue-400 rounded-lg p-6 mt-6 bg-black/20">
-                    <Brain className="w-12 h-12 text-blue-400 mx-auto mb-3" />
-                    <p className="text-blue-300 font-semibold text-center">ESPAÇO PARA PREVIEW DOS CONCEITOS</p>
-                    <p className="text-blue-200 text-sm mt-2 text-center">Exemplo de resumos e formatação</p>
                   </div>
                 </CardContent>
               </Card>
@@ -301,15 +289,9 @@ function App() {
                       <span className="text-gray-300">Análises personalizadas baseadas no seu desempenho</span>
                     </div>
                   </div>
-                  
-                  <div className="border-2 border-dashed border-purple-400 rounded-lg p-6 bg-black/20">
-                    <Monitor className="w-12 h-12 text-purple-400 mx-auto mb-3" />
-                    <p className="text-purple-300 font-semibold text-center">ESPAÇO PARA PRINTS DA PLATAFORMA</p>
-                    <p className="text-purple-200 text-sm mt-2 text-center">Interface e gráficos de desempenho</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -437,51 +419,17 @@ function App() {
           >
             <Card className="bg-slate-800 border-slate-600">
               <CardContent className="p-8">
-                <div className="flex flex-col md:flex-row items-center gap-8">
-                  <div className="flex-shrink-0">
-                    <img 
-                      src="/foto-mentor.png" 
-                      alt="Mentor especialista em ENEM com 829 de média"
-                      className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-yellow-400 shadow-2xl"
-                    />
+                <div className="text-center">
+                  <div className="flex items-center justify-center gap-2 mb-4">
+                    <Trophy className="w-6 h-6 text-yellow-400" />
+                    <span className="text-2xl font-bold text-yellow-400">Mário Machado, mentor que alcançou 829 de média no ENEM</span>
                   </div>
-                  <div className="flex-1 text-center md:text-left">
-                    <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
-                      <Trophy className="w-6 h-6 text-yellow-400" />
-                      <span className="text-2xl font-bold text-yellow-400">829 de média</span>
-                      <span className="text-gray-300">no ENEM</span>
-                    </div>
-                    <p className="text-gray-300 text-lg leading-relaxed">
-                      O DNA do ENEM foi desenvolvido por um mentor especialista que não apenas <strong className="text-yellow-400">domina o conteúdo</strong>, mas também <strong className="text-blue-300">entende exatamente como a prova funciona</strong>. Cada questão das LMLs e cada Conceito Vital foram <strong className="text-green-400">criteriosamente selecionados</strong> com base em anos de análise das provas do ENEM.
-                    </p>
-                  </div>
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    O DNA do ENEM foi desenvolvido por um mentor especialista que não apenas <strong className="text-yellow-400">domina o conteúdo</strong>, mas também <strong className="text-blue-300">entende exatamente como a prova funciona</strong>. Cada questão das LMLs e cada Conceito Vital foram <strong className="text-green-400">criteriosamente selecionados</strong> com base em anos de análise das provas do ENEM.
+                  </p>
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
-
-          <motion.div 
-            className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-12"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={staggerChildren}
-          >
-            <motion.div variants={fadeInUp}>
-              <div className="border-2 border-dashed border-purple-400 rounded-lg p-8 bg-black/20 h-full">
-                <Star className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-                <p className="text-purple-300 font-semibold text-center">ESPAÇO PARA DEPOIMENTO 1</p>
-                <p className="text-purple-200 text-sm mt-2 text-center">Aluno aprovado com o método</p>
-              </div>
-            </motion.div>
-
-            <motion.div variants={fadeInUp}>
-              <div className="border-2 border-dashed border-purple-400 rounded-lg p-8 bg-black/20 h-full">
-                <Star className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-                <p className="text-purple-300 font-semibold text-center">ESPAÇO PARA DEPOIMENTO 2</p>
-                <p className="text-purple-200 text-sm mt-2 text-center">Aluno aprovado com o método</p>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </section>
