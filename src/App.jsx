@@ -56,11 +56,13 @@ function App() {
 
             <motion.div 
               variants={fadeInUp}
-              className="border-2 border-dashed border-yellow-400 rounded-lg p-8 mb-8 bg-black/20"
+              className="mb-8"
             >
-              <BookOpen className="w-16 h-16 text-yellow-400 mx-auto mb-4" />
-              <p className="text-yellow-300 font-semibold text-lg">ESPAÇO PARA IMAGEM PRINCIPAL DO PRODUTO</p>
-              <p className="text-blue-200 text-sm mt-2">Mockup do material, capas dos livros ou interface digital</p>
+              <img 
+                src="/assets/mockup-dna-enem.png" 
+                alt="DNA do ENEM - Plataforma completa com Listas de Mapeamento, Conceitos Vitais e Dashboard de acompanhamento"
+                className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl"
+              />
             </motion.div>
 
             <motion.div variants={fadeInUp}>
