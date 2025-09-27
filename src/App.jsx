@@ -2,37 +2,11 @@ import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Badge } from '@/components/ui/badge.jsx'
-import { CheckCircle, Target, BookOpen, TrendingUp, Clock, Star, Users, Award, ArrowRight, Play, Download, Zap, Brain, Trophy, Shield } from 'lucide-react'
+import { CheckCircle, Target, BookOpen, TrendingUp, Clock, Star, Users, Award, ArrowRight, Play, Download, Zap, Brain, Trophy, Shield, AlertTriangle, Frown, BookX } from 'lucide-react'
 import { motion } from 'framer-motion'
 import './App.css'
 
 function App() {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 45,
-    hours: 12,
-    minutes: 30,
-    seconds: 0
-  })
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 }
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 }
-        } else if (prev.hours > 0) {
-          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 }
-        } else if (prev.days > 0) {
-          return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 }
-        }
-        return prev
-      })
-    }, 1000)
-
-    return () => clearInterval(timer)
-  }, [])
-
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -48,11 +22,11 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+    <div className="min-h-screen bg-slate-900 text-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
-        <div className="relative container mx-auto px-4 py-20 lg:py-32">
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div 
             className="text-center max-w-4xl mx-auto"
             initial="initial"
@@ -60,461 +34,529 @@ function App() {
             variants={staggerChildren}
           >
             <motion.div variants={fadeInUp} className="mb-6">
-              <Badge className="bg-yellow-500 text-black font-bold px-4 py-2 text-sm">
-                🔥 RETA FINAL DO ENEM 2024
+              <Badge className="bg-yellow-500 text-black font-bold px-4 py-2 text-sm mb-6">
+                🔥 RETA FINAL DO ENEM 2025
               </Badge>
             </motion.div>
             
             <motion.h1 
               variants={fadeInUp}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+              className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
             >
-              Pare de Estudar
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500"> Tudo</span>
-              <br />
-              Comece a Estudar o que
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500"> Importa</span>
+              Domine os conteúdos que estarão no{' '}
+              <span className="text-yellow-400">2º dia</span> do seu ENEM!
             </motion.h1>
             
             <motion.p 
               variants={fadeInUp}
-              className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+              className="text-xl md:text-2xl mb-8 text-blue-200 leading-relaxed max-w-3xl mx-auto"
             >
-              O <strong className="text-yellow-400">DNA do ENEM</strong> é o sistema de revisão que transforma o medo de esquecer conteúdo na <strong className="text-blue-400">confiança de que você está usando seu tempo da forma mais inteligente possível</strong>
+              O <strong className="text-yellow-400">DNA do ENEM</strong> é o sistema de revisão que transforma o medo de esquecer o conteúdo na <span className="text-blue-300">confiança de que você está usando seu tempo da forma mais inteligente possível</span>
             </motion.p>
 
-            {/* Espaço para Imagem Principal do Produto */}
             <motion.div 
               variants={fadeInUp}
-              className="mb-8 p-8 border-2 border-dashed border-yellow-400/50 rounded-lg bg-yellow-400/5"
+              className="border-2 border-dashed border-yellow-400 rounded-lg p-8 mb-8 bg-black/20"
             >
-              <div className="text-yellow-400 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-yellow-400/20 rounded-full flex items-center justify-center">
-                  <BookOpen className="w-8 h-8" />
-                </div>
-                <p className="text-sm font-medium">ESPAÇO PARA IMAGEM PRINCIPAL DO PRODUTO</p>
-                <p className="text-xs text-gray-400 mt-1">Mockup do material, capas dos livros ou interface digital</p>
-              </div>
+              <BookOpen className="w-16 h-16 text-yellow-400 mx-auto mb-4" />
+              <p className="text-yellow-300 font-semibold text-lg">ESPAÇO PARA IMAGEM PRINCIPAL DO PRODUTO</p>
+              <p className="text-blue-200 text-sm mt-2">Mockup do material, capas dos livros ou interface digital</p>
             </motion.div>
-            
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+
+            <motion.div variants={fadeInUp}>
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-black font-bold px-8 py-4 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
+                className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold px-8 py-4 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
               >
-                <Zap className="mr-2 h-5 w-5" />
+                <Zap className="w-5 h-5 mr-2" />
                 QUERO GARANTIR MINHA APROVAÇÃO
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg rounded-full"
-              >
-                <Play className="mr-2 h-4 w-4" />
-                Ver Como Funciona
-              </Button>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Contador de Urgência */}
-      <section className="bg-red-600 py-6">
+      {/* Nova Seção: A reta final te deixa assim? */}
+      <section className="py-20 bg-black">
         <div className="container mx-auto px-4">
           <motion.div 
-            className="text-center text-white"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            <h3 className="text-lg font-bold mb-4">⏰ FALTAM APENAS:</h3>
-            <div className="flex justify-center gap-4 text-2xl font-bold">
-              <div className="bg-white/20 px-4 py-2 rounded">
-                <div>{timeLeft.days}</div>
-                <div className="text-xs">DIAS</div>
-              </div>
-              <div className="bg-white/20 px-4 py-2 rounded">
-                <div>{timeLeft.hours}</div>
-                <div className="text-xs">HORAS</div>
-              </div>
-              <div className="bg-white/20 px-4 py-2 rounded">
-                <div>{timeLeft.minutes}</div>
-                <div className="text-xs">MIN</div>
-              </div>
-              <div className="bg-white/20 px-4 py-2 rounded">
-                <div>{timeLeft.seconds}</div>
-                <div className="text-xs">SEG</div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Problema */}
-      <section className="py-20 bg-slate-800">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="max-w-4xl mx-auto text-center"
+            className="text-center mb-16"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={staggerChildren}
           >
-            <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-bold text-white mb-8">
-              Você Está Estudando <span className="text-red-400">Errado</span>
+            <motion.h2 
+              variants={fadeInUp}
+              className="text-4xl md:text-5xl font-bold mb-6 text-white"
+            >
+              A reta final te deixa <span className="text-red-400">assim?</span>
             </motion.h2>
-            
-            <motion.div variants={fadeInUp} className="grid md:grid-cols-3 gap-6 mb-12">
-              <Card className="bg-red-900/20 border-red-500/30">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-red-500/20 rounded-full flex items-center justify-center">
-                    <Clock className="w-8 h-8 text-red-400" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">Tempo Perdido</h3>
-                  <p className="text-gray-300">Estudando conteúdos que não caem na prova</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="bg-red-900/20 border-red-500/30">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-red-500/20 rounded-full flex items-center justify-center">
-                    <Target className="w-8 h-8 text-red-400" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">Sem Direção</h3>
-                  <p className="text-gray-300">Não sabe o que priorizar na reta final</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="bg-red-900/20 border-red-500/30">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-red-500/20 rounded-full flex items-center justify-center">
-                    <Brain className="w-8 h-8 text-red-400" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">Ansiedade</h3>
-                  <p className="text-gray-300">Medo de esquecer algo importante</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.p variants={fadeInUp} className="text-xl text-gray-300 leading-relaxed">
-              <strong className="text-red-400">A verdade é:</strong> 80% do que você está estudando <strong>NÃO VAI CAIR</strong> na sua prova. 
-              Enquanto isso, você está deixando de lado os 20% que <strong className="text-yellow-400">REALMENTE IMPORTAM</strong> para sua aprovação.
+            <motion.p 
+              variants={fadeInUp}
+              className="text-xl text-gray-300 max-w-3xl mx-auto"
+            >
+              Se você se identifica com algum desses pontos, o <span className="text-yellow-400 font-semibold">DNA do ENEM</span> é para você
             </motion.p>
           </motion.div>
-        </div>
-      </section>
 
-      {/* Solução */}
-      <section className="py-20 bg-gradient-to-r from-blue-900 to-indigo-900">
-        <div className="container mx-auto px-4">
           <motion.div 
-            className="max-w-6xl mx-auto"
+            className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={staggerChildren}
           >
-            <motion.div variants={fadeInUp} className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                Apresentamos o <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">DNA do ENEM</span>
-              </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                O único sistema de revisão que funciona como um <strong className="text-blue-400">filtro estratégico</strong>, 
-                focando exclusivamente no que <strong className="text-yellow-400">REALMENTE CAI</strong> em Ciências da Natureza e Matemática
-              </p>
-            </motion.div>
-
-            {/* Espaço para Imagem do Sistema */}
-            <motion.div 
-              variants={fadeInUp}
-              className="mb-12 p-8 border-2 border-dashed border-blue-400/50 rounded-lg bg-blue-400/5"
-            >
-              <div className="text-blue-400 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-blue-400/20 rounded-full flex items-center justify-center">
-                  <Target className="w-8 h-8" />
-                </div>
-                <p className="text-sm font-medium">ESPAÇO PARA IMAGEM DO SISTEMA COMPLETO</p>
-                <p className="text-xs text-gray-400 mt-1">Visão geral dos dois pilares: LML + Conceitos Vitais</p>
-              </div>
-            </motion.div>
-
-            <motion.div variants={fadeInUp} className="grid md:grid-cols-2 gap-8">
-              <Card className="bg-white/5 border-yellow-500/30 backdrop-blur-sm">
-                <CardHeader>
-                  <div className="w-16 h-16 mb-4 bg-yellow-500/20 rounded-full flex items-center justify-center">
-                    <CheckCircle className="w-8 h-8 text-yellow-400" />
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-slate-800 border-slate-700 h-full hover:bg-slate-700 transition-colors duration-300">
+                <CardHeader className="text-center pb-4">
+                  <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Frown className="w-8 h-8 text-red-400" />
                   </div>
-                  <CardTitle className="text-2xl text-white">Listas de Mapeamento de Lacunas (LML)</CardTitle>
-                  <CardDescription className="text-gray-300 text-base">
-                    Questões criteriosamente selecionadas por um mentor com <strong className="text-yellow-400">829 de média</strong>
-                  </CardDescription>
+                  <CardTitle className="text-red-400 text-xl">Confuso e Perdido</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3 text-gray-300">
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                      <span>Diagnóstica suas principais dificuldades</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                      <span>Corrige lacunas específicas do seu conhecimento</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                      <span>Foca apenas no que você precisa melhorar</span>
-                    </li>
-                  </ul>
+                  <p className="text-gray-300 text-center">
+                    É tanto conteúdo que você não sabe por onde começar a revisar e o que realmente importa.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-slate-800 border-slate-700 h-full hover:bg-slate-700 transition-colors duration-300">
+                <CardHeader className="text-center pb-4">
+                  <div className="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <AlertTriangle className="w-8 h-8 text-orange-400" />
+                  </div>
+                  <CardTitle className="text-orange-400 text-xl">Medo de "Dar Branco"</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300 text-center">
+                    A ansiedade de esquecer tudo na hora da prova te paralisa e rouba sua confiança.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-slate-800 border-slate-700 h-full hover:bg-slate-700 transition-colors duration-300">
+                <CardHeader className="text-center pb-4">
+                  <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <BookX className="w-8 h-8 text-purple-400" />
+                  </div>
+                  <CardTitle className="text-purple-400 text-xl">Estudo Genérico</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300 text-center">
+                    Você consome horas de videoaulas e PDFs, mas não sente que está evoluindo de forma estratégica.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Seção DNA do ENEM Atualizada */}
+      <section className="py-20 bg-gradient-to-br from-blue-900 via-slate-900 to-blue-800">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-16"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={staggerChildren}
+          >
+            <motion.h2 
+              variants={fadeInUp}
+              className="text-4xl md:text-5xl font-bold mb-6 text-white"
+            >
+              A solução é dominar o <span className="text-yellow-400">DNA do ENEM</span>
+            </motion.h2>
+            <motion.p 
+              variants={fadeInUp}
+              className="text-xl text-blue-200 max-w-4xl mx-auto leading-relaxed"
+            >
+              O único sistema de revisão que funciona como um <span className="text-yellow-400 font-semibold">filtro estratégico</span>, focando no que <span className="text-yellow-400 font-bold">REALMENTE CAI</span> em Ciências da Natureza e Matemática
+            </motion.p>
+          </motion.div>
+
+          <motion.div 
+            className="border-2 border-dashed border-blue-400 rounded-lg p-8 mb-12 bg-black/20 max-w-4xl mx-auto"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <Target className="w-16 h-16 text-blue-400 mx-auto mb-4" />
+            <p className="text-blue-300 font-semibold text-lg text-center">ESPAÇO PARA IMAGEM DO SISTEMA COMPLETO</p>
+            <p className="text-blue-200 text-sm mt-2 text-center">Visão geral dos dois pilares: LML + Conceitos Vitais</p>
+          </motion.div>
+
+          <motion.div 
+            className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={staggerChildren}
+          >
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-slate-800 border-slate-600 h-full">
+                <CardHeader>
+                  <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4">
+                    <CheckCircle className="w-8 h-8 text-green-400" />
+                  </div>
+                  <CardTitle className="text-2xl text-green-400">
+                    Listas de Mapeamento de Lacunas (LML)
+                  </CardTitle>
+                  <CardDescription className="text-gray-300">
+                    Questões criteriosamente selecionadas por um mentor com <span className="text-yellow-400 font-bold">829 de média</span>
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <span className="text-gray-300">Diagnostica suas principais dificuldades</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <span className="text-gray-300">Corrige lacunas específicas do seu conhecimento</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <span className="text-gray-300">Foca apenas no que você precisa melhorar</span>
+                  </div>
                   
-                  {/* Espaço para Imagem das LML */}
-                  <div className="mt-6 p-4 border border-dashed border-yellow-400/30 rounded bg-yellow-400/5">
-                    <div className="text-yellow-400 text-center text-sm">
-                      <BookOpen className="w-6 h-6 mx-auto mb-2" />
-                      <p className="font-medium">ESPAÇO PARA PREVIEW DAS LML</p>
-                      <p className="text-xs text-gray-400">Exemplo de questões e layout</p>
-                    </div>
+                  <div className="border-2 border-dashed border-yellow-400 rounded-lg p-6 mt-6 bg-black/20">
+                    <BookOpen className="w-12 h-12 text-yellow-400 mx-auto mb-3" />
+                    <p className="text-yellow-300 font-semibold text-center">ESPAÇO PARA PREVIEW DAS LML</p>
+                    <p className="text-blue-200 text-sm mt-2 text-center">Exemplo de questões e layout</p>
                   </div>
                 </CardContent>
               </Card>
+            </motion.div>
 
-              <Card className="bg-white/5 border-blue-500/30 backdrop-blur-sm">
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-slate-800 border-slate-600 h-full">
                 <CardHeader>
-                  <div className="w-16 h-16 mb-4 bg-blue-500/20 rounded-full flex items-center justify-center">
+                  <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mb-4">
                     <BookOpen className="w-8 h-8 text-blue-400" />
                   </div>
-                  <CardTitle className="text-2xl text-white">Conceitos Vitais</CardTitle>
-                  <CardDescription className="text-gray-300 text-base">
-                    Resumos curtos e diretos dos tópicos com <strong className="text-blue-400">maior incidência</strong> na prova
+                  <CardTitle className="text-2xl text-blue-400">
+                    Conceitos Vitais
+                  </CardTitle>
+                  <CardDescription className="text-gray-300">
+                    Resumos curtos e diretos dos tópicos com <span className="text-yellow-400 font-bold">maior incidência</span> na prova
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 text-gray-300">
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                      <span>Conteúdo essencial condensado</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                      <span>Baseado em análise estatística das provas</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                      <span>Revisão rápida e eficiente</span>
-                    </li>
-                  </ul>
-
-                  {/* Espaço para Imagem dos Conceitos Vitais */}
-                  <div className="mt-6 p-4 border border-dashed border-blue-400/30 rounded bg-blue-400/5">
-                    <div className="text-blue-400 text-center text-sm">
-                      <Brain className="w-6 h-6 mx-auto mb-2" />
-                      <p className="font-medium">ESPAÇO PARA PREVIEW DOS CONCEITOS</p>
-                      <p className="text-xs text-gray-400">Exemplo de resumos e formatação</p>
-                    </div>
+                <CardContent className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <span className="text-gray-300">Conteúdo essencial condensado</span>
                   </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Benefícios */}
-      <section className="py-20 bg-slate-800">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="max-w-6xl mx-auto"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={staggerChildren}
-          >
-            <motion.div variants={fadeInUp} className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                A Transformação que Você Vai Viver
-              </h2>
-              <p className="text-xl text-gray-300">
-                Do medo e ansiedade para a <strong className="text-green-400">confiança total</strong> na sua aprovação
-              </p>
-            </motion.div>
-
-            <motion.div variants={fadeInUp} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-              <Card className="bg-gradient-to-br from-green-900/20 to-emerald-900/20 border-green-500/30">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-green-500/20 rounded-full flex items-center justify-center">
-                    <TrendingUp className="w-8 h-8 text-green-400" />
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <span className="text-gray-300">Baseado em análise estatística das provas</span>
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">Foco Laser</h3>
-                  <p className="text-gray-300">Estude apenas o que realmente importa para sua nota</p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-gradient-to-br from-blue-900/20 to-cyan-900/20 border-blue-500/30">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-blue-500/20 rounded-full flex items-center justify-center">
-                    <Clock className="w-8 h-8 text-blue-400" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">Tempo Otimizado</h3>
-                  <p className="text-gray-300">Máximo resultado com o mínimo de tempo investido</p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-gradient-to-br from-purple-900/20 to-violet-900/20 border-purple-500/30">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-purple-500/20 rounded-full flex items-center justify-center">
-                    <Shield className="w-8 h-8 text-purple-400" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">Confiança Total</h3>
-                  <p className="text-gray-300">Chegue na prova sabendo que está preparado</p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-gradient-to-br from-yellow-900/20 to-orange-900/20 border-yellow-500/30">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-yellow-500/20 rounded-full flex items-center justify-center">
-                    <Trophy className="w-8 h-8 text-yellow-400" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">Aprovação Garantida</h3>
-                  <p className="text-gray-300">Sistema testado e aprovado por centenas de alunos</p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-gradient-to-br from-red-900/20 to-pink-900/20 border-red-500/30">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-red-500/20 rounded-full flex items-center justify-center">
-                    <Zap className="w-8 h-8 text-red-400" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">Resultados Rápidos</h3>
-                  <p className="text-gray-300">Veja sua evolução já nas primeiras semanas</p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-gradient-to-br from-indigo-900/20 to-blue-900/20 border-indigo-500/30">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-indigo-500/20 rounded-full flex items-center justify-center">
-                    <Star className="w-8 h-8 text-indigo-400" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">Método Exclusivo</h3>
-                  <p className="text-gray-300">Estratégia única desenvolvida por especialista</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div variants={fadeInUp} className="text-center">
-              <div className="bg-gradient-to-r from-green-600 to-emerald-600 p-8 rounded-2xl">
-                <h3 className="text-2xl font-bold text-white mb-4">
-                  🎯 O Resultado Final
-                </h3>
-                <p className="text-xl text-green-100 leading-relaxed">
-                  Você vai <strong>transformar o medo de esquecer conteúdo</strong> na <strong>confiança de que está usando seu tempo da forma mais inteligente possível</strong> para garantir sua aprovação no ENEM 2024.
-                </p>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Prova Social */}
-      <section className="py-20 bg-gradient-to-r from-purple-900 to-indigo-900">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="max-w-4xl mx-auto text-center"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={staggerChildren}
-          >
-            <motion.div variants={fadeInUp} className="mb-12">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                Criado por Quem <span className="text-yellow-400">Realmente Sabe</span>
-              </h2>
-              
-              <Card className="bg-white/10 border-yellow-500/30 backdrop-blur-sm p-8">
-                <div className="flex flex-col md:flex-row items-center gap-6">
-                  {/* Espaço para Foto do Mentor */}
-                  <div className="w-32 h-32 border-2 border-dashed border-yellow-400/50 rounded-full bg-yellow-400/5 flex items-center justify-center flex-shrink-0">
-                    <div className="text-yellow-400 text-center">
-                      <Users className="w-8 h-8 mx-auto mb-2" />
-                      <p className="text-xs font-medium">FOTO DO MENTOR</p>
-                    </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <span className="text-gray-300">Revisão rápida e eficiente</span>
                   </div>
                   
-                  <div className="text-left">
-                    <div className="flex items-center gap-2 mb-4">
-                      <Award className="w-6 h-6 text-yellow-400" />
-                      <span className="text-3xl font-bold text-yellow-400">829 de média</span>
-                      <span className="text-white">no ENEM</span>
+                  <div className="border-2 border-dashed border-blue-400 rounded-lg p-6 mt-6 bg-black/20">
+                    <Brain className="w-12 h-12 text-blue-400 mx-auto mb-3" />
+                    <p className="text-blue-300 font-semibold text-center">ESPAÇO PARA PREVIEW DOS CONCEITOS</p>
+                    <p className="text-blue-200 text-sm mt-2 text-center">Exemplo de resumos e formatação</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Seção de Benefícios */}
+      <section className="py-20 bg-black">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-16"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={staggerChildren}
+          >
+            <motion.h2 
+              variants={fadeInUp}
+              className="text-4xl md:text-5xl font-bold mb-6 text-white"
+            >
+              A Transformação que Você Vai Viver
+            </motion.h2>
+            <motion.p 
+              variants={fadeInUp}
+              className="text-xl text-gray-300 max-w-3xl mx-auto"
+            >
+              Do medo e ansiedade para a <span className="text-green-400 font-bold">confiança total</span> na sua aprovação
+            </motion.p>
+          </motion.div>
+
+          <motion.div 
+            className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={staggerChildren}
+          >
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-gradient-to-br from-green-900 to-green-800 border-green-700 h-full">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <TrendingUp className="w-8 h-8 text-green-400" />
+                  </div>
+                  <CardTitle className="text-green-300 text-xl">Foco Laser</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-green-100 text-center">
+                    Estude apenas o que realmente importa para sua nota
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-gradient-to-br from-blue-900 to-blue-800 border-blue-700 h-full">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Clock className="w-8 h-8 text-blue-400" />
+                  </div>
+                  <CardTitle className="text-blue-300 text-xl">Tempo Otimizado</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-blue-100 text-center">
+                    Máximo resultado com o mínimo de tempo investido
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-gradient-to-br from-purple-900 to-purple-800 border-purple-700 h-full">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Shield className="w-8 h-8 text-purple-400" />
+                  </div>
+                  <CardTitle className="text-purple-300 text-xl">Confiança Total</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-purple-100 text-center">
+                    Chegue na prova sabendo que está preparado
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-gradient-to-br from-yellow-900 to-yellow-800 border-yellow-700 h-full">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Trophy className="w-8 h-8 text-yellow-400" />
+                  </div>
+                  <CardTitle className="text-yellow-300 text-xl">Aprovação Garantida</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-yellow-100 text-center">
+                    Sistema testado e aprovado por centenas de alunos
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-gradient-to-br from-red-900 to-red-800 border-red-700 h-full">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Zap className="w-8 h-8 text-red-400" />
+                  </div>
+                  <CardTitle className="text-red-300 text-xl">Resultados Rápidos</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-red-100 text-center">
+                    Veja sua evolução já nas primeiras semanas
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-gradient-to-br from-indigo-900 to-indigo-800 border-indigo-700 h-full">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Star className="w-8 h-8 text-indigo-400" />
+                  </div>
+                  <CardTitle className="text-indigo-300 text-xl">Método Exclusivo</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-indigo-100 text-center">
+                    Estratégia única desenvolvida por especialista
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </motion.div>
+
+          <motion.div 
+            className="bg-gradient-to-r from-green-600 to-green-500 rounded-2xl p-8 text-center max-w-4xl mx-auto"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <Target className="w-12 h-12 text-white mx-auto mb-4" />
+            <h3 className="text-2xl font-bold text-white mb-4">🎯 O Resultado Final</h3>
+            <p className="text-green-100 text-lg leading-relaxed">
+              Você vai <strong>transformar o medo de esquecer conteúdo</strong> na <strong>confiança de que está usando seu tempo da forma mais inteligente possível</strong> para garantir sua aprovação no ENEM 2025.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Seção de Prova Social */}
+      <section className="py-20 bg-gradient-to-br from-purple-900 via-slate-900 to-purple-800">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-16"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={staggerChildren}
+          >
+            <motion.h2 
+              variants={fadeInUp}
+              className="text-4xl md:text-5xl font-bold mb-6 text-white"
+            >
+              Criado por Quem <span className="text-yellow-400">Realmente Sabe</span>
+            </motion.h2>
+          </motion.div>
+
+          <motion.div 
+            className="max-w-4xl mx-auto"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <Card className="bg-slate-800 border-slate-600">
+              <CardContent className="p-8">
+                <div className="flex flex-col md:flex-row items-center gap-8">
+                  <div className="border-2 border-dashed border-yellow-400 rounded-full p-8 bg-black/20 flex-shrink-0">
+                    <Users className="w-16 h-16 text-yellow-400 mx-auto" />
+                    <p className="text-yellow-300 font-semibold text-center mt-2">FOTO DO MENTOR</p>
+                  </div>
+                  <div className="flex-1 text-center md:text-left">
+                    <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
+                      <Trophy className="w-6 h-6 text-yellow-400" />
+                      <span className="text-2xl font-bold text-yellow-400">829 de média</span>
+                      <span className="text-gray-300">no ENEM</span>
                     </div>
                     <p className="text-gray-300 text-lg leading-relaxed">
-                      O DNA do ENEM foi desenvolvido por um mentor especialista que não apenas <strong className="text-yellow-400">domina o conteúdo</strong>, 
-                      mas também <strong className="text-blue-400">entende exatamente como a prova funciona</strong>. 
-                      Cada questão das LML e cada Conceito Vital foi <strong className="text-green-400">criteriosamente selecionado</strong> 
-                      com base em anos de análise das provas do ENEM.
+                      O DNA do ENEM foi desenvolvido por um mentor especialista que não apenas <strong className="text-yellow-400">domina o conteúdo</strong>, mas também <strong className="text-blue-300">entende exatamente como a prova funciona</strong>. Cada questão das LML e cada Conceito Vital foi <strong className="text-green-400">criteriosamente selecionado</strong> com base em anos de análise das provas do ENEM.
                     </p>
                   </div>
                 </div>
-              </Card>
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          <motion.div 
+            className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-12"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={staggerChildren}
+          >
+            <motion.div variants={fadeInUp}>
+              <div className="border-2 border-dashed border-purple-400 rounded-lg p-8 bg-black/20 h-full">
+                <Star className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+                <p className="text-purple-300 font-semibold text-center">ESPAÇO PARA DEPOIMENTO 1</p>
+                <p className="text-purple-200 text-sm mt-2 text-center">Aluno aprovado com o método</p>
+              </div>
             </motion.div>
 
-            {/* Espaço para Depoimentos */}
-            <motion.div variants={fadeInUp} className="grid md:grid-cols-2 gap-6">
-              <div className="p-6 border-2 border-dashed border-purple-400/50 rounded-lg bg-purple-400/5">
-                <div className="text-purple-400 text-center">
-                  <Star className="w-8 h-8 mx-auto mb-2" />
-                  <p className="text-sm font-medium">ESPAÇO PARA DEPOIMENTO 1</p>
-                  <p className="text-xs text-gray-400 mt-1">Aluno aprovado com o método</p>
-                </div>
-              </div>
-              
-              <div className="p-6 border-2 border-dashed border-purple-400/50 rounded-lg bg-purple-400/5">
-                <div className="text-purple-400 text-center">
-                  <Star className="w-8 h-8 mx-auto mb-2" />
-                  <p className="text-sm font-medium">ESPAÇO PARA DEPOIMENTO 2</p>
-                  <p className="text-xs text-gray-400 mt-1">Aluno aprovado com o método</p>
-                </div>
+            <motion.div variants={fadeInUp}>
+              <div className="border-2 border-dashed border-purple-400 rounded-lg p-8 bg-black/20 h-full">
+                <Star className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+                <p className="text-purple-300 font-semibold text-center">ESPAÇO PARA DEPOIMENTO 2</p>
+                <p className="text-purple-200 text-sm mt-2 text-center">Aluno aprovado com o método</p>
               </div>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* CTA Principal */}
-      <section className="py-20 bg-gradient-to-r from-yellow-500 to-orange-500">
-        <div className="container mx-auto px-4">
+      {/* Seção de CTA Principal */}
+      <section className="py-20 bg-gradient-to-br from-yellow-600 via-orange-500 to-red-500">
+        <div className="container mx-auto px-4 text-center">
           <motion.div 
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-4xl mx-auto"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={staggerChildren}
           >
-            <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-bold text-black mb-6">
+            <motion.h2 
+              variants={fadeInUp}
+              className="text-4xl md:text-5xl font-bold mb-6 text-white"
+            >
               Garanta Sua Aprovação AGORA
             </motion.h2>
-            
-            <motion.p variants={fadeInUp} className="text-xl text-black/80 mb-8 max-w-2xl mx-auto">
+            <motion.p 
+              variants={fadeInUp}
+              className="text-xl mb-8 text-orange-100"
+            >
               Não deixe para depois. O ENEM está chegando e cada dia perdido é uma oportunidade a menos de garantir sua vaga na universidade dos seus sonhos.
             </motion.p>
 
-            <motion.div variants={fadeInUp} className="bg-black/10 p-8 rounded-2xl mb-8">
-              <div className="text-black">
-                <div className="text-4xl font-bold mb-2">R$ 197</div>
-                <div className="text-lg">Investimento único</div>
-                <div className="text-sm mt-2">💳 Parcelamento disponível</div>
+            <motion.div 
+              variants={fadeInUp}
+              className="bg-black/20 rounded-2xl p-8 mb-8 backdrop-blur-sm"
+            >
+              <div className="text-6xl font-bold text-white mb-2">R$ 197</div>
+              <div className="text-xl text-orange-100 mb-4">Investimento único</div>
+              <div className="flex flex-wrap justify-center gap-4 text-sm text-orange-200">
+                <span>💳 Parcelamento disponível</span>
+                <span>🔒 Compra 100% segura</span>
+                <span>⚡ Acesso imediato</span>
+                <span>🎯 Garantia de 7 dias</span>
               </div>
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="space-y-4">
+            <motion.div variants={fadeInUp}>
               <Button 
                 size="lg" 
-                className="bg-black hover:bg-gray-800 text-white font-bold px-12 py-6 text-xl rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 w-full md:w-auto"
+                className="bg-black hover:bg-gray-800 text-white font-bold px-12 py-6 text-xl rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
               >
-                <Trophy className="mr-3 h-6 w-6" />
+                <Zap className="w-6 h-6 mr-3" />
                 QUERO GARANTIR MINHA APROVAÇÃO
-                <ArrowRight className="ml-3 h-6 w-6" />
+                <ArrowRight className="w-6 h-6 ml-3" />
               </Button>
-              
-              <p className="text-black/70 text-sm">
-                🔒 Compra 100% segura | ⚡ Acesso imediato | 🎯 Garantia de 7 dias
-              </p>
+            </motion.div>
+
+            <motion.div 
+              variants={fadeInUp}
+              className="mt-6 flex flex-wrap justify-center gap-6 text-orange-100"
+            >
+              <div className="flex items-center">
+                <Shield className="w-5 h-5 mr-2" />
+                <span>Compra 100% segura</span>
+              </div>
+              <div className="flex items-center">
+                <Zap className="w-5 h-5 mr-2" />
+                <span>Acesso imediato</span>
+              </div>
+              <div className="flex items-center">
+                <Award className="w-5 h-5 mr-2" />
+                <span>Garantia de 7 dias</span>
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -524,61 +566,79 @@ function App() {
       <section className="py-20 bg-slate-900">
         <div className="container mx-auto px-4">
           <motion.div 
-            className="max-w-4xl mx-auto"
+            className="text-center mb-16"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              Perguntas Frequentes
+            </h2>
+          </motion.div>
+
+          <motion.div 
+            className="max-w-4xl mx-auto space-y-6"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={staggerChildren}
           >
-            <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-bold text-white text-center mb-12">
-              Perguntas Frequentes
-            </motion.h2>
-            
-            <motion.div variants={fadeInUp} className="space-y-6">
-              <Card className="bg-white/5 border-gray-700">
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-slate-800 border-slate-700">
                 <CardHeader>
-                  <CardTitle className="text-white">O DNA do ENEM funciona para todos os níveis?</CardTitle>
+                  <CardTitle className="text-white text-lg">
+                    O DNA do ENEM funciona para todos os níveis?
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-300">
-                    Sim! O sistema foi desenvolvido tanto para quem está começando quanto para quem já tem uma base sólida. 
-                    As LML identificam exatamente onde você precisa melhorar, independente do seu nível atual.
+                    Sim! O sistema foi desenvolvido tanto para quem está começando quanto para quem já tem uma base sólida. As LML identificam exatamente onde você precisa melhorar, independente do seu nível atual.
                   </p>
                 </CardContent>
               </Card>
+            </motion.div>
 
-              <Card className="bg-white/5 border-gray-700">
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-slate-800 border-slate-700">
                 <CardHeader>
-                  <CardTitle className="text-white">Quanto tempo preciso dedicar por dia?</CardTitle>
+                  <CardTitle className="text-white text-lg">
+                    Quanto tempo preciso dedicar por dia?
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-300">
-                    O DNA do ENEM foi projetado para ser eficiente. Com apenas 2-3 horas por dia de estudo focado, 
-                    você terá resultados muito superiores a quem estuda 8 horas de forma desorganizada.
+                    O DNA do ENEM foi projetado para ser eficiente. Com apenas 2-3 horas por dia de estudo focado, você terá resultados muito superiores a quem estuda 8 horas de forma desorganizada.
                   </p>
                 </CardContent>
               </Card>
+            </motion.div>
 
-              <Card className="bg-white/5 border-gray-700">
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-slate-800 border-slate-700">
                 <CardHeader>
-                  <CardTitle className="text-white">E se eu não conseguir os resultados prometidos?</CardTitle>
+                  <CardTitle className="text-white text-lg">
+                    E se eu não conseguir os resultados prometidos?
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-300">
-                    Oferecemos garantia incondicional de 7 dias. Se por qualquer motivo você não ficar satisfeito, 
-                    devolvemos 100% do seu investimento, sem perguntas.
+                    Oferecemos garantia incondicional de 7 dias. Se por qualquer motivo você não ficar satisfeito, devolvemos 100% do seu investimento, sem perguntas.
                   </p>
                 </CardContent>
               </Card>
+            </motion.div>
 
-              <Card className="bg-white/5 border-gray-700">
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-slate-800 border-slate-700">
                 <CardHeader>
-                  <CardTitle className="text-white">O material é atualizado para o ENEM 2024?</CardTitle>
+                  <CardTitle className="text-white text-lg">
+                    O material é atualizado para o ENEM 2025?
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-300">
-                    Absolutamente! Todo o conteúdo foi revisado e atualizado especificamente para o ENEM 2024, 
-                    incluindo as últimas tendências e mudanças no exame.
+                    Absolutamente! Todo o conteúdo foi revisado e atualizado especificamente para o ENEM 2025, incluindo as últimas tendências e mudanças no exame.
                   </p>
                 </CardContent>
               </Card>
@@ -588,52 +648,51 @@ function App() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-20 bg-gradient-to-r from-red-600 to-red-700">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-red-600">
+        <div className="container mx-auto px-4 text-center">
           <motion.div 
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-4xl mx-auto"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={staggerChildren}
           >
-            <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-bold text-white mb-6">
-              ⚠️ ÚLTIMA CHANCE
-            </motion.h2>
-            
-            <motion.p variants={fadeInUp} className="text-xl text-red-100 mb-8">
-              O ENEM está chegando. Cada dia que passa é uma oportunidade perdida. 
-              <strong> Não deixe o medo de esquecer conteúdo sabotar sua aprovação.</strong>
-            </motion.p>
+            <motion.div variants={fadeInUp} className="mb-8">
+              <AlertTriangle className="w-16 h-16 text-white mx-auto mb-4" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                ⚠️ ÚLTIMA CHANCE
+              </h2>
+              <p className="text-xl text-red-100 leading-relaxed">
+                O ENEM está chegando. Cada dia que passa é uma oportunidade perdida. <strong>Não deixe o medo de esquecer conteúdo sabotar sua aprovação.</strong>
+              </p>
+            </motion.div>
 
             <motion.div variants={fadeInUp}>
               <Button 
                 size="lg" 
-                className="bg-white hover:bg-gray-100 text-red-600 font-bold px-12 py-6 text-xl rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
+                className="bg-white hover:bg-gray-100 text-red-600 font-bold px-12 py-6 text-xl rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 mb-6"
               >
-                <Zap className="mr-3 h-6 w-6" />
+                <Zap className="w-6 h-6 mr-3" />
                 SIM, QUERO GARANTIR MINHA APROVAÇÃO
               </Button>
-              
-              <p className="text-red-100 text-sm mt-4">
-                ✅ Acesso imediato após a compra | 🎯 Método testado e aprovado
-              </p>
+            </motion.div>
+
+            <motion.div 
+              variants={fadeInUp}
+              className="flex flex-wrap justify-center gap-6 text-red-100"
+            >
+              <div className="flex items-center">
+                <CheckCircle className="w-5 h-5 mr-2" />
+                <span>Acesso imediato após a compra</span>
+              </div>
+              <div className="flex items-center">
+                <Award className="w-5 h-5 mr-2" />
+                <span>Método testado e aprovado</span>
+              </div>
             </motion.div>
           </motion.div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-black py-12">
-        <div className="container mx-auto px-4 text-center">
-          <div className="text-gray-400">
-            <p className="mb-4">© 2024 DNA do ENEM. Todos os direitos reservados.</p>
-            <p className="text-sm">
-              Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho de uma estratégia não deve ser interpretada como uma garantia de resultados.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
