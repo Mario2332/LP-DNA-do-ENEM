@@ -59,9 +59,9 @@ function App() {
               className="mb-8"
             >
               <img 
-                src="/assets/mockup-dna-enem.png" 
+                src="/mockup-dna-enem-original.png" 
                 alt="DNA do ENEM - Plataforma completa com Listas de Mapeamento, Conceitos Vitais e Dashboard de acompanhamento"
-                className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl"
+                className="w-full max-w-5xl mx-auto rounded-2xl shadow-2xl"
               />
             </motion.div>
 
