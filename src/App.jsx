@@ -279,9 +279,9 @@ function App() {
                       <span className="text-gray-300">Análises personalizadas baseadas no seu desempenho</span>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            </motion.div>
+                </div>
+              </CardContent>
+            </Card>
           </motion.div>
         </div>
       </section>
