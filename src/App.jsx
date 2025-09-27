@@ -55,13 +55,15 @@ function App() {
             </motion.p>
 
             <motion.div variants={fadeInUp}>
-              <Button 
-                size="lg" 
-                className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold px-8 py-4 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
-              >
-                <Zap className="w-5 h-5 mr-2" />
-                QUERO GARANTIR MINHA APROVAÇÃO
-              </Button>
+              <a href="https://pay.kiwify.com.br/MqrZTs0" target="_blank" rel="noopener noreferrer">
+                <Button 
+                  size="lg" 
+                  className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold px-8 py-4 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
+                >
+                  <Zap className="w-5 h-5 mr-2" />
+                  QUERO GARANTIR MINHA APROVAÇÃO
+                </Button>
+              </a>
             </motion.div>
           </motion.div>
         </div>
@@ -496,13 +498,15 @@ function App() {
                     </div>
                   </CardContent>
                   <div className="p-6 pt-0">
-                    <Button 
-                      size="lg" 
-                      className="w-full bg-white hover:bg-gray-100 text-black font-bold py-4 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
-                    >
-                      <Zap className="w-5 h-5 mr-2" />
-                      QUERO O DNA DO ENEM
-                    </Button>
+                    <a href="https://pay.kiwify.com.br/MqrZTs0" target="_blank" rel="noopener noreferrer">
+                      <Button 
+                        size="lg" 
+                        className="w-full bg-white hover:bg-gray-100 text-black font-bold py-4 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
+                      >
+                        <Zap className="w-5 h-5 mr-2" />
+                        QUERO O DNA DO ENEM
+                      </Button>
+                    </a>
                   </div>
                 </Card>
               </motion.div>
@@ -546,13 +550,15 @@ function App() {
                     </div>
                   </CardContent>
                   <div className="p-6 pt-0">
-                    <Button 
-                      size="lg" 
-                      className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
-                    >
-                      <Trophy className="w-5 h-5 mr-2" />
-                      QUERO O COMBO COMPLETO
-                    </Button>
+                    <a href="https://pay.kiwify.com.br/FPpAFaM" target="_blank" rel="noopener noreferrer">
+                      <Button 
+                        size="lg" 
+                        className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
+                      >
+                        <Trophy className="w-5 h-5 mr-2" />
+                        QUERO O COMBO COMPLETO
+                      </Button>
+                    </a>
                   </div>
                 </Card>
               </motion.div>
@@ -685,13 +691,15 @@ function App() {
             </motion.div>
 
             <motion.div variants={fadeInUp}>
-              <Button 
-                size="lg" 
-                className="bg-white hover:bg-gray-100 text-red-600 font-bold px-12 py-6 text-xl rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 mb-6"
-              >
-                <Zap className="w-6 h-6 mr-3" />
-                SIM, QUERO GARANTIR MINHA APROVAÇÃO
-              </Button>
+              <a href="https://pay.kiwify.com.br/MqrZTs0" target="_blank" rel="noopener noreferrer">
+                <Button 
+                  size="lg" 
+                  className="bg-white hover:bg-gray-100 text-red-600 font-bold px-12 py-6 text-xl rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 mb-6"
+                >
+                  <Zap className="w-6 h-6 mr-3" />
+                  SIM, QUERO GARANTIR MINHA APROVAÇÃO
+                </Button>
+              </a>
             </motion.div>
 
             <motion.div 
