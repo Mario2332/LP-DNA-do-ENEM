@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Badge } from '@/components/ui/badge.jsx'
-import { CheckCircle, Target, BookOpen, TrendingUp, Clock, Star, Users, Award, ArrowRight, Play, Download, Zap, Brain, Trophy, Shield, AlertTriangle, Frown, BookX } from 'lucide-react'
+import { CheckCircle, Target, BookOpen, TrendingUp, Clock, Star, Users, Award, ArrowRight, Play, Download, Zap, Brain, Trophy, Shield, AlertTriangle, Frown, BookX, BarChart3, Monitor, PieChart } from 'lucide-react'
 import { motion } from 'framer-motion'
 import './App.css'
 
@@ -22,10 +22,10 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
+    <div className="min-h-screen bg-slate-950 text-white">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 overflow-hidden">
+        <div className="absolute inset-0 bg-black/30"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div 
             className="text-center max-w-4xl mx-auto"
@@ -90,7 +90,7 @@ function App() {
               variants={fadeInUp}
               className="text-4xl md:text-5xl font-bold mb-6 text-white"
             >
-              A reta final te deixa <span className="text-red-400">assim?</span>
+              A <span className="text-red-400">reta final</span> te deixa assim?
             </motion.h2>
             <motion.p 
               variants={fadeInUp}
@@ -159,7 +159,7 @@ function App() {
       </section>
 
       {/* Seção DNA do ENEM Atualizada */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 via-slate-900 to-blue-800">
+      <section className="py-20 bg-gradient-to-br from-blue-950 via-slate-950 to-blue-900">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center mb-16"
@@ -225,7 +225,7 @@ function App() {
                   </div>
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                    <span className="text-gray-300">Foca apenas no que você precisa melhorar</span>
+                    <span className="text-gray-300">645 questões, todas com resolução detalhada</span>
                   </div>
                   
                   <div className="border-2 border-dashed border-yellow-400 rounded-lg p-6 mt-6 bg-black/20">
@@ -273,10 +273,57 @@ function App() {
               </Card>
             </motion.div>
           </motion.div>
+
+          {/* Nova Seção da Plataforma */}
+          <motion.div 
+            className="mt-16"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <Card className="bg-slate-800 border-slate-600 max-w-4xl mx-auto">
+              <CardHeader className="text-center">
+                <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <BarChart3 className="w-8 h-8 text-purple-400" />
+                </div>
+                <CardTitle className="text-2xl text-purple-400">
+                  Plataforma Inteligente de Acompanhamento
+                </CardTitle>
+                <CardDescription className="text-gray-300">
+                  Tecnologia avançada para maximizar seus resultados
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-3">
+                      <PieChart className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                      <span className="text-gray-300">Registro automático do desempenho em cada lista</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <BarChart3 className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                      <span className="text-gray-300">Gráficos detalhados de evolução</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <Target className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                      <span className="text-gray-300">Análises personalizadas baseadas no seu desempenho</span>
+                    </div>
+                  </div>
+                  
+                  <div className="border-2 border-dashed border-purple-400 rounded-lg p-6 bg-black/20">
+                    <Monitor className="w-12 h-12 text-purple-400 mx-auto mb-3" />
+                    <p className="text-purple-300 font-semibold text-center">ESPAÇO PARA PRINTS DA PLATAFORMA</p>
+                    <p className="text-purple-200 text-sm mt-2 text-center">Interface e gráficos de desempenho</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
-      {/* Seção de Benefícios */}
+      {/* Seção de Benefícios Atualizada */}
       <section className="py-20 bg-black">
         <div className="container mx-auto px-4">
           <motion.div 
@@ -317,7 +364,7 @@ function App() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-green-100 text-center">
-                    Estude apenas o que realmente importa para sua nota
+                    Estude tudo que importa para sua nota
                   </p>
                 </CardContent>
               </Card>
@@ -329,7 +376,7 @@ function App() {
                   <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Clock className="w-8 h-8 text-blue-400" />
                   </div>
-                  <CardTitle className="text-blue-300 text-xl">Tempo Otimizado</CardTitle>
+                  <CardTitle className="text-blue-300 text-xl">Otimize seu tempo</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-blue-100 text-center">
@@ -349,55 +396,7 @@ function App() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-purple-100 text-center">
-                    Chegue na prova sabendo que está preparado
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div variants={fadeInUp}>
-              <Card className="bg-gradient-to-br from-yellow-900 to-yellow-800 border-yellow-700 h-full">
-                <CardHeader className="text-center">
-                  <div className="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Trophy className="w-8 h-8 text-yellow-400" />
-                  </div>
-                  <CardTitle className="text-yellow-300 text-xl">Aprovação Garantida</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-yellow-100 text-center">
-                    Sistema testado e aprovado por centenas de alunos
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div variants={fadeInUp}>
-              <Card className="bg-gradient-to-br from-red-900 to-red-800 border-red-700 h-full">
-                <CardHeader className="text-center">
-                  <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Zap className="w-8 h-8 text-red-400" />
-                  </div>
-                  <CardTitle className="text-red-300 text-xl">Resultados Rápidos</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-red-100 text-center">
-                    Veja sua evolução já nas primeiras semanas
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div variants={fadeInUp}>
-              <Card className="bg-gradient-to-br from-indigo-900 to-indigo-800 border-indigo-700 h-full">
-                <CardHeader className="text-center">
-                  <div className="w-16 h-16 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Star className="w-8 h-8 text-indigo-400" />
-                  </div>
-                  <CardTitle className="text-indigo-300 text-xl">Método Exclusivo</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-indigo-100 text-center">
-                    Estratégia única desenvolvida por especialista
+                    Chegue na prova sabendo que revisou os conteúdos que estarão nela
                   </p>
                 </CardContent>
               </Card>
@@ -421,7 +420,7 @@ function App() {
       </section>
 
       {/* Seção de Prova Social */}
-      <section className="py-20 bg-gradient-to-br from-purple-900 via-slate-900 to-purple-800">
+      <section className="py-20 bg-gradient-to-br from-purple-950 via-slate-950 to-purple-900">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center mb-16"
@@ -459,7 +458,7 @@ function App() {
                       <span className="text-gray-300">no ENEM</span>
                     </div>
                     <p className="text-gray-300 text-lg leading-relaxed">
-                      O DNA do ENEM foi desenvolvido por um mentor especialista que não apenas <strong className="text-yellow-400">domina o conteúdo</strong>, mas também <strong className="text-blue-300">entende exatamente como a prova funciona</strong>. Cada questão das LML e cada Conceito Vital foi <strong className="text-green-400">criteriosamente selecionado</strong> com base em anos de análise das provas do ENEM.
+                      O DNA do ENEM foi desenvolvido por um mentor especialista que não apenas <strong className="text-yellow-400">domina o conteúdo</strong>, mas também <strong className="text-blue-300">entende exatamente como a prova funciona</strong>. Cada questão das LMLs e cada Conceito Vital foram <strong className="text-green-400">criteriosamente selecionados</strong> com base em anos de análise das provas do ENEM.
                     </p>
                   </div>
                 </div>
@@ -493,11 +492,11 @@ function App() {
         </div>
       </section>
 
-      {/* Seção de CTA Principal */}
+      {/* Seção de CTA Principal Atualizada */}
       <section className="py-20 bg-gradient-to-br from-yellow-600 via-orange-500 to-red-500">
         <div className="container mx-auto px-4 text-center">
           <motion.div 
-            className="max-w-4xl mx-auto"
+            className="max-w-6xl mx-auto"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
@@ -511,39 +510,118 @@ function App() {
             </motion.h2>
             <motion.p 
               variants={fadeInUp}
-              className="text-xl mb-8 text-orange-100"
+              className="text-xl mb-12 text-orange-100"
             >
               Não deixe para depois. O ENEM está chegando e cada dia perdido é uma oportunidade a menos de garantir sua vaga na universidade dos seus sonhos.
             </motion.p>
 
             <motion.div 
-              variants={fadeInUp}
-              className="bg-black/20 rounded-2xl p-8 mb-8 backdrop-blur-sm"
+              className="grid md:grid-cols-2 gap-8 mb-12"
+              variants={staggerChildren}
             >
-              <div className="text-6xl font-bold text-white mb-2">R$ 197</div>
-              <div className="text-xl text-orange-100 mb-4">Investimento único</div>
-              <div className="flex flex-wrap justify-center gap-4 text-sm text-orange-200">
-                <span>💳 Parcelamento disponível</span>
-                <span>🔒 Compra 100% segura</span>
-                <span>⚡ Acesso imediato</span>
-                <span>🎯 Garantia de 7 dias</span>
-              </div>
-            </motion.div>
+              {/* DNA do ENEM */}
+              <motion.div variants={fadeInUp}>
+                <Card className="bg-black/20 border-white/20 backdrop-blur-sm h-full">
+                  <CardHeader className="text-center">
+                    <CardTitle className="text-2xl font-bold text-white mb-4">DNA do ENEM</CardTitle>
+                    <div className="text-5xl font-bold text-white mb-2">R$ 57</div>
+                    <div className="text-lg text-orange-100 mb-6">Investimento único</div>
+                  </CardHeader>
+                  <CardContent className="space-y-3 text-left">
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-orange-100">645 questões com resolução detalhada</span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-orange-100">Conceitos Vitais dos tópicos mais cobrados</span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-orange-100">Plataforma com registro de desempenho</span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-orange-100">Gráficos e análises personalizadas</span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-orange-100">Acesso imediato e vitalício</span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-orange-100">Garantia de 7 dias</span>
+                    </div>
+                  </CardContent>
+                  <div className="p-6 pt-0">
+                    <Button 
+                      size="lg" 
+                      className="w-full bg-white hover:bg-gray-100 text-black font-bold py-4 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
+                    >
+                      <Zap className="w-5 h-5 mr-2" />
+                      QUERO O DNA DO ENEM
+                    </Button>
+                  </div>
+                </Card>
+              </motion.div>
 
-            <motion.div variants={fadeInUp}>
-              <Button 
-                size="lg" 
-                className="bg-black hover:bg-gray-800 text-white font-bold px-12 py-6 text-xl rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
-              >
-                <Zap className="w-6 h-6 mr-3" />
-                QUERO GARANTIR MINHA APROVAÇÃO
-                <ArrowRight className="w-6 h-6 ml-3" />
-              </Button>
+              {/* COMBO */}
+              <motion.div variants={fadeInUp}>
+                <Card className="bg-gradient-to-br from-purple-600 to-purple-700 border-purple-400 h-full relative overflow-hidden">
+                  <div className="absolute top-4 right-4">
+                    <Badge className="bg-yellow-500 text-black font-bold px-3 py-1">
+                      MAIS VENDIDO
+                    </Badge>
+                  </div>
+                  <CardHeader className="text-center">
+                    <CardTitle className="text-2xl font-bold text-white mb-4">
+                      COMBO: DNA + Padrões do ENEM
+                    </CardTitle>
+                    <div className="text-5xl font-bold text-white mb-2">R$ 97</div>
+                    <div className="text-lg text-purple-100 mb-6">Investimento único</div>
+                  </CardHeader>
+                  <CardContent className="space-y-3 text-left">
+                    <div className="text-yellow-300 font-semibold mb-3">✅ TUDO DO DNA DO ENEM +</div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-purple-100">Curso Padrões do ENEM completo</span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-purple-100">Mais de 30 aulas de questões-modelo</span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-purple-100">100+ questões-modelo que mais aparecem</span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-purple-100">Listas de questões práticas</span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-purple-100">Método completo de preparação</span>
+                    </div>
+                    <div className="text-yellow-300 font-semibold text-center mt-4">
+                      💰 ECONOMIA DE R$ 40
+                    </div>
+                  </CardContent>
+                  <div className="p-6 pt-0">
+                    <Button 
+                      size="lg" 
+                      className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
+                    >
+                      <Trophy className="w-5 h-5 mr-2" />
+                      QUERO O COMBO COMPLETO
+                    </Button>
+                  </div>
+                </Card>
+              </motion.div>
             </motion.div>
 
             <motion.div 
               variants={fadeInUp}
-              className="mt-6 flex flex-wrap justify-center gap-6 text-orange-100"
+              className="flex flex-wrap justify-center gap-6 text-orange-100"
             >
               <div className="flex items-center">
                 <Shield className="w-5 h-5 mr-2" />
@@ -563,7 +641,7 @@ function App() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-slate-900">
+      <section className="py-20 bg-slate-950">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center mb-16"
