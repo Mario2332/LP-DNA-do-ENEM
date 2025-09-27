@@ -54,17 +54,6 @@ function App() {
               O <strong className="text-yellow-400">DNA do ENEM</strong> é o sistema de revisão que transforma o medo de esquecer o conteúdo na <span className="text-blue-300">confiança de que você está usando seu tempo da forma mais inteligente possível</span>
             </motion.p>
 
-            <motion.div 
-              variants={fadeInUp}
-              className="mb-8"
-            >
-              <img 
-                src="/mockup-dna-enem-original.png" 
-                alt="DNA do ENEM - Plataforma completa com Listas de Mapeamento, Conceitos Vitais e Dashboard de acompanhamento"
-                className="w-full max-w-5xl mx-auto rounded-2xl shadow-2xl"
-              />
-            </motion.div>
-
             <motion.div variants={fadeInUp}>
               <Button 
                 size="lg" 
@@ -422,7 +411,7 @@ function App() {
       </section>
 
       {/* Seção de Prova Social */}
-      <section className="py-20 bg-gradient-to-br from-purple-950 via-slate-950 to-purple-900">
+      <section className="py-20 bg-gradient-to-br from-blue-950 via-slate-950 to-blue-900">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center mb-16"
@@ -495,7 +484,7 @@ function App() {
       </section>
 
       {/* Seção de CTA Principal Atualizada */}
-      <section className="py-20 bg-gradient-to-br from-yellow-600 via-orange-500 to-red-500">
+      <section className="py-20 bg-black">
         <div className="container mx-auto px-4 text-center">
           <motion.div 
             className="max-w-6xl mx-auto"
@@ -512,7 +501,7 @@ function App() {
             </motion.h2>
             <motion.p 
               variants={fadeInUp}
-              className="text-xl mb-12 text-orange-100"
+              className="text-xl mb-12 text-gray-300"
             >
               Não deixe para depois. O ENEM está chegando e cada dia perdido é uma oportunidade a menos de garantir sua vaga na universidade dos seus sonhos.
             </motion.p>
@@ -523,36 +512,36 @@ function App() {
             >
               {/* DNA do ENEM */}
               <motion.div variants={fadeInUp}>
-                <Card className="bg-black/20 border-white/20 backdrop-blur-sm h-full">
+                <Card className="bg-slate-800 border-2 border-blue-500/50 backdrop-blur-sm h-full hover:border-blue-400 transition-all duration-300">
                   <CardHeader className="text-center">
                     <CardTitle className="text-2xl font-bold text-white mb-4">DNA do ENEM</CardTitle>
                     <div className="text-5xl font-bold text-white mb-2">R$ 57</div>
-                    <div className="text-lg text-orange-100 mb-6">Investimento único</div>
+                    <div className="text-lg text-gray-300 mb-6">Investimento único</div>
                   </CardHeader>
                   <CardContent className="space-y-3 text-left">
                     <div className="flex items-start space-x-3">
                       <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-orange-100">645 questões com resolução detalhada</span>
+                      <span className="text-gray-300">645 questões com resolução detalhada</span>
                     </div>
                     <div className="flex items-start space-x-3">
                       <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-orange-100">Conceitos Vitais dos tópicos mais cobrados</span>
+                      <span className="text-gray-300">Conceitos Vitais dos tópicos mais cobrados</span>
                     </div>
                     <div className="flex items-start space-x-3">
                       <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-orange-100">Plataforma com registro de desempenho</span>
+                      <span className="text-gray-300">Plataforma com registro de desempenho</span>
                     </div>
                     <div className="flex items-start space-x-3">
                       <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-orange-100">Gráficos e análises personalizadas</span>
+                      <span className="text-gray-300">Gráficos e análises personalizadas</span>
                     </div>
                     <div className="flex items-start space-x-3">
                       <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-orange-100">Acesso imediato e vitalício</span>
+                      <span className="text-gray-300">Acesso imediato e vitalício</span>
                     </div>
                     <div className="flex items-start space-x-3">
                       <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-orange-100">Garantia de 7 dias</span>
+                      <span className="text-gray-300">Garantia de 7 dias</span>
                     </div>
                   </CardContent>
                   <div className="p-6 pt-0">
@@ -569,7 +558,7 @@ function App() {
 
               {/* COMBO */}
               <motion.div variants={fadeInUp}>
-                <Card className="bg-gradient-to-br from-purple-600 to-purple-700 border-purple-400 h-full relative overflow-hidden">
+                <Card className="bg-slate-800 border-2 border-yellow-500 shadow-lg shadow-yellow-500/20 h-full relative overflow-hidden hover:border-yellow-400 hover:shadow-yellow-400/30 transition-all duration-300">
                   <div className="absolute top-4 right-4">
                     <Badge className="bg-yellow-500 text-black font-bold px-3 py-1">
                       MAIS VENDIDO
@@ -580,32 +569,29 @@ function App() {
                       COMBO: DNA + Padrões do ENEM
                     </CardTitle>
                     <div className="text-5xl font-bold text-white mb-2">R$ 97</div>
-                    <div className="text-lg text-purple-100 mb-6">Investimento único</div>
+                    <div className="text-lg text-gray-300 mb-6">Investimento único</div>
                   </CardHeader>
                   <CardContent className="space-y-3 text-left">
                     <div className="text-yellow-300 font-semibold mb-3">✅ TUDO DO DNA DO ENEM +</div>
                     <div className="flex items-start space-x-3">
                       <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-purple-100">Curso Padrões do ENEM completo</span>
+                      <span className="text-gray-300">Curso Padrões do ENEM completo</span>
                     </div>
                     <div className="flex items-start space-x-3">
                       <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-purple-100">Mais de 30 aulas de questões-modelo</span>
+                      <span className="text-gray-300">Mais de 30 aulas de questões-modelo</span>
                     </div>
                     <div className="flex items-start space-x-3">
                       <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-purple-100">100+ questões-modelo que mais aparecem</span>
+                      <span className="text-gray-300">100+ questões-modelo que mais aparecem</span>
                     </div>
                     <div className="flex items-start space-x-3">
                       <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-purple-100">Listas de questões práticas</span>
+                      <span className="text-gray-300">Listas de questões práticas</span>
                     </div>
                     <div className="flex items-start space-x-3">
                       <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-purple-100">Método completo de preparação</span>
-                    </div>
-                    <div className="text-yellow-300 font-semibold text-center mt-4">
-                      💰 ECONOMIA DE R$ 40
+                      <span className="text-gray-300">Método completo de preparação</span>
                     </div>
                   </CardContent>
                   <div className="p-6 pt-0">
@@ -623,7 +609,7 @@ function App() {
 
             <motion.div 
               variants={fadeInUp}
-              className="flex flex-wrap justify-center gap-6 text-orange-100"
+              className="flex flex-wrap justify-center gap-6 text-gray-300"
             >
               <div className="flex items-center">
                 <Shield className="w-5 h-5 mr-2" />
