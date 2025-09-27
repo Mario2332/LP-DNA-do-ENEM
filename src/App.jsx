@@ -438,9 +438,12 @@ function App() {
             <Card className="bg-slate-800 border-slate-600">
               <CardContent className="p-8">
                 <div className="flex flex-col md:flex-row items-center gap-8">
-                  <div className="border-2 border-dashed border-yellow-400 rounded-full p-8 bg-black/20 flex-shrink-0">
-                    <Users className="w-16 h-16 text-yellow-400 mx-auto" />
-                    <p className="text-yellow-300 font-semibold text-center mt-2">FOTO DO MENTOR</p>
+                  <div className="flex-shrink-0">
+                    <img 
+                      src="/foto-mentor.png" 
+                      alt="Mentor especialista em ENEM com 829 de média"
+                      className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-yellow-400 shadow-2xl"
+                    />
                   </div>
                   <div className="flex-1 text-center md:text-left">
                     <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
